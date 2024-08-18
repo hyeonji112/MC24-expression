@@ -1,0 +1,177 @@
+/* 기본 설정 */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.125rem;
+  line-height: 2rem;
+  overflow: hidden;
+  margin: 0;
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
+  font-weight: 400;
+  color: oklch(90% 0 0/1);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  background: url('../style/assets/background.png') center center/cover no-repeat;
+  height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  margin-block: 0.5em;
+}
+
+p {
+  font-size: 1.125rem;
+  line-height: 2rem;
+  max-width: 93ch;
+  margin-block: 0.5em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 링크 스타일 */
+a, a:visited {
+  color: White;
+  text-decoration: none;
+}
+
+/* 이미지, 비디오 등 */
+img, video, svg, canvas {
+  display: block;
+  max-width: 100%;
+}
+
+/* 스크롤바 스타일 */
+.viewport {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100dvh;
+}
+
+.viewport::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.viewport::-webkit-scrollbar-track {
+  background-color: oklch(22% 0 0/1);
+}
+
+.viewport::-webkit-scrollbar-thumb {
+  background-color: oklch(60% 0 0/1);
+}
+
+/* 테이블과 그리드 */
+.table, .grid {
+  display: grid;
+  row-gap: 0.5em;
+  column-gap: 1.5em;
+}
+
+.table {
+  grid-template-columns: repeat(1, max-content) minmax(15.5ch, 1fr);
+  overflow-x: auto;
+  width: fit-content;
+  max-width: 100%;
+  padding: 2rem;
+  background-color: oklch(17% 0 0/1);
+}
+
+.table--col-3 { grid-template-columns: repeat(2, max-content) minmax(15.5ch, 1fr); }
+.table--col-4 { grid-template-columns: repeat(3, max-content) minmax(15.5ch, 1fr); }
+.table--col-5 { grid-template-columns: repeat(4, max-content) minmax(15.5ch, 1fr); }
+.table--col-6 { grid-template-columns: repeat(5, max-content) minmax(15.5ch, 1fr); }
+.table--col-7 { grid-template-columns: repeat(6, max-content) minmax(15.5ch, 1fr); }
+.table--col-8 { grid-template-columns: repeat(7, max-content) minmax(15.5ch, 1fr); }
+
+.table--numbering, .grid--numbering {
+  counter-reset: table-counter;
+}
+
+.table .header, .grid .header {
+  font-weight: 700;
+}
+
+.table .number::before, .grid .number::before {
+  content: counter(table-counter);
+  counter-increment: table-counter;
+}
+
+.table > * > * + *, .grid > * > * + * {
+  margin-top: 0.25em;
+}
+
+.table::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.table::-webkit-scrollbar-track {
+  background-color: oklch(22% 0 0/1);
+}
+
+.table::-webkit-scrollbar-thumb {
+  background-color: oklch(60% 0 0/1);
+}
+
+/* 컨테이너 */
+.interactive {
+  box-sizing: content-box;
+  max-width: 60rem;
+  margin-inline: auto;
+  padding-block: 2.5rem;
+  padding-inline: 5rem;
+  padding-top: 200px;
+}
+
+@media (max-width: 100rem) {
+  .interactive {
+    padding-block: 2.5rem;
+    padding-inline: 2.5rem;
+  }
+}
+
+@media (max-width: 60rem) {
+  .interactive {
+    padding-block: 2rem;
+    padding-inline: 2rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  .interactive {
+    padding-block: 2rem;
+    padding-inline: 1.5rem;
+  }
+}
+
+/* 헤딩 */
+h1 { font-size: 5.125rem; line-height: 6.25rem; }
+h2 { font-size: 4.0625rem; line-height: 5.125rem; }
+h3 { font-size: 3.1875rem; line-height: 4.125rem; }
+h4 { font-size: 2.5rem; line-height: 3.375rem; }
+h5 { font-size: 2rem; line-height: 2.75rem; }
+h6 { font-size: 1.5625rem; line-height: 2.25rem; }
+
+/* 미디어 쿼리 */
+@media (max-width: 60rem) {
+  body { font-size: 1rem; line-height: 1.75rem; }
+  h1 { font-size: 2.25rem; line-height: 3rem; }
+  h2 { font-size: 2rem; line-height: 2.75rem; }
+  h3 { font-size: 1.75rem; line-height: 2.375rem; }
+  h4 { font-size: 1.5625rem; line-height: 2.25rem; }
+  h5 { font-size: 1.375rem; line-height: 2rem; }
+  h6 { font-size: 1.25rem; line-height: 1.75rem; }
+  p { font-size: 1rem; line-height: 1.75rem; }
+  .table { padding: 1rem; }
+}
+
+@media (max-width: 40rem) {
+  body { word-break: break-all; overflow-wrap: anywhere; }
+  p { word-break: break-all; overflow-wrap: anywhere; }
+}
